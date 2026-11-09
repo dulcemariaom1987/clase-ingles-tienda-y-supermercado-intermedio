@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>🛒 English Shop – ¡Aprende inglés jugando!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Comic Sans MS","Chalkboard SE","Trebuchet MS",sans-serif;background:linear-gradient(135deg,#3a86ff,#2ec4b6 55%,#ffd166);background-attachment:fixed;color:#2b1b4d;min-height:100vh}
+h1{color:#fff;text-align:center;margin:10px 8px 4px;font-size:clamp(1.5rem,6vw,2.6rem);text-shadow:0 3px 0 #0003;animation:bob 2s ease-in-out infinite}
+#stars{text-align:center;color:#fff;font-size:1.2rem;font-weight:bold}
+@keyframes bob{50%{transform:translateY(-6px) rotate(-1deg)}}
+.fl{position:fixed;font-size:2rem;opacity:.35;pointer-events:none;animation:fl 9s linear infinite;z-index:0}
+@keyframes fl{from{transform:translateY(105vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+nav{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:6px;position:relative;z-index:1}
+nav button{border:0;border-radius:20px;padding:9px 13px;font:inherit;font-weight:bold;background:#fff;color:#6a2fd6;cursor:pointer;box-shadow:0 4px 0 #0003}
+nav button.on{background:#27d17f;color:#fff;transform:translateY(2px)}
+.sec{position:relative;z-index:1;max-width:760px;margin:10px auto;background:#fffffff2;border-radius:28px;padding:18px;box-shadow:0 8px 0 #0003;text-align:center}
+.sec[hidden]{display:none}
+h2{margin:0 0 6px;color:#1d6fd6}
+p{margin:6px 0;font-size:1.05rem}
+button.b,.opt{border:0;border-radius:18px;padding:11px 16px;margin:4px;font:inherit;font-weight:bold;font-size:1.05rem;color:#fff;background:linear-gradient(#ffa23d,#f26a1b);cursor:pointer;box-shadow:0 4px 0 #0003;transition:transform .1s}
+button.b:active,.opt:active{transform:translateY(3px)}
+.opt{background:linear-gradient(#35a7ff,#6a5bff);min-width:110px}
+.opt.ok{background:#27d17f;animation:pop .4s}.opt.no{background:#999;opacity:.6}
+@keyframes pop{50%{transform:scale(1.2)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.card{background:linear-gradient(#fff6c9,#e3f6ff);border-radius:20px;padding:10px;cursor:pointer;box-shadow:0 4px 0 #0002;transition:transform .2s}
+.card:hover{transform:scale(1.07) rotate(-2deg)}
+.card .e{font-size:2.6rem}.card b{display:block;font-size:1.3rem;color:#6a2fd6}.card small{color:#555}
+.big{font-size:5rem;animation:bob 1.6s infinite}
+.say{background:#e9fff3;border-radius:14px;padding:10px;margin:6px 0;cursor:pointer;font-size:1.05rem}
+.say:hover{background:#c9ffe2}
+.ws{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;max-width:520px;margin:10px auto}
+.ws button{aspect-ratio:1;border:0;border-radius:8px;font:inherit;font-weight:bold;font-size:clamp(.9rem,4vw,1.3rem);background:#e8e1ff;color:#4b2a9c;cursor:pointer;padding:0}
+.ws .s{background:#ffd54a}.ws .f{background:#27d17f;color:#fff}
+.wl span{display:inline-block;margin:3px;padding:4px 10px;border-radius:12px;background:#e3f6ff;font-weight:bold}
+.wl .f{text-decoration:line-through;background:#c9ffe2;opacity:.7}
+.pop{position:relative;width:100px;height:170px;margin:6px auto}
+.pb{position:absolute;left:5px;bottom:56px;width:90px;border-radius:45px 45px 14px 14px;background:linear-gradient(#ff7a3d,#ffd166);transition:height .6s;box-shadow:inset -10px 0 0 #fff3}
+.ps{position:absolute;left:38px;bottom:0;width:24px;height:64px;background:#e8c48a;border-radius:0 0 10px 10px}
+.blanks{font-size:2rem;letter-spacing:6px;font-weight:bold;color:#6a2fd6;margin:8px}
+.kb button{width:38px;height:42px;margin:2px;border:0;border-radius:10px;font:inherit;font-weight:bold;background:#35a7ff;color:#fff;cursor:pointer}
+.kb button:disabled{background:#ccc}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:440px;margin:10px auto}
+.mc{aspect-ratio:1;border:0;border-radius:16px;font:inherit;font-weight:bold;font-size:clamp(.9rem,4vw,1.4rem);background:linear-gradient(#3a86ff,#2ec4b6);color:#fff;cursor:pointer;padding:0;box-shadow:0 4px 0 #0003}
+.mc.up{background:#fff6c9;color:#6a2fd6;font-size:clamp(1.4rem,7vw,2.4rem)}.mc.up.w{font-size:clamp(.7rem,3.3vw,1.15rem)}
+.mc.d{background:#27d17f;color:#fff}
+.tray{min-height:60px;font-size:2rem;background:#e9fff3;border-radius:16px;padding:6px;margin:8px 0;border:3px dashed #27d17f}
+input{font:inherit;font-size:1.2rem;padding:8px 12px;border-radius:14px;border:3px solid #b9a5ff;width:min(220px,60%);text-align:center}
+input.ok{border-color:#27d17f;background:#e9fff3}input.no{border-color:#ff5252;background:#fff0f0}
+.row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin:8px 0}
+.cf{position:fixed;top:-40px;font-size:2rem;z-index:9;pointer-events:none;animation:cf 2.5s ease-in forwards}
+@keyframes cf{to{transform:translateY(110vh) rotate(540deg)}}
+</style></head><body>
+<h1>🛒 English Shop 🛍️</h1><div id="stars">⭐ 0</div>
+<nav id="nav"></nav>
+
+<section class="sec" id="s0"></section>
+<section class="sec" id="s1" hidden></section>
+<section class="sec" id="s2" hidden></section>
+<section class="sec" id="s3" hidden></section>
+<section class="sec" id="s4" hidden></section>
+<section class="sec" id="s5" hidden></section>
+<section class="sec" id="s6" hidden></section>
+
+<script>
+const $=i=>document.getElementById(i),rnd=n=>Math.floor(Math.random()*n),sh=a=>[...a].sort(()=>Math.random()-.5);
+const W=[["shop","🏪","la tienda"],["buy","💳","comprar"],["money","💵","el dinero"],["bag","🛍️","la bolsa"],["cashier","🧑‍💼","el cajero / la cajera"],["cart","🛒","el carrito"],["coin","🪙","la moneda"],["price","🏷️","el precio"],["milk","🥛","la leche"],["bread","🍞","el pan"],["apple","🍎","la manzana"],["dress","👗","el vestido"],["dresser","🗄️","la cómoda"],["shirt","👕","la camisa"],["shoes","👟","los zapatos"],["hat","🧢","la gorra"],["pants","👖","el pantalón"],["socks","🧦","los calcetines"],["jacket","🧥","la chaqueta"],["toy","🧸","el juguete"],["ball","⚽","la pelota"],["book","📚","el libro"],["banana","🍌","el plátano"],["orange","🍊","la naranja"],["grapes","🍇","las uvas"],["cheese","🧀","el queso"],["egg","🥚","el huevo"],["juice","🧃","el jugo"],["cookie","🍪","la galleta"],["candy","🍬","el dulce"],["pizza","🍕","la pizza"],["carrot","🥕","la zanahoria"],["tomato","🍅","el tomate"],["fish","🐟","el pescado"],["chicken","🍗","el pollo"],["basket","🧺","la canasta"],["wallet","👛","la billetera"],["receipt","🧾","el recibo"],["customer","🙋","el cliente"],["mall","🏬","el centro comercial"]];
+const P=[["How much is it?","¿Cuánto cuesta?"],["It’s five dollars.","Cuesta cinco dólares."],["I want to buy a bag.","Quiero comprar una bolsa."],["Here is the money.","Aquí está el dinero."],["Thank you!","¡Gracias!"],["I want an apple, please.","Quiero una manzana, por favor."],["How much are the shoes?","¿Cuánto cuestan los zapatos?"],["It’s ten dollars.","Cuesta diez dólares."],["Where is the cashier?","¿Dónde está el cajero?"],["Can I have a bag, please?","¿Me das una bolsa, por favor?"],["Goodbye! Have a nice day!","¡Adiós! ¡Que tengas un lindo día!"]];
+const NUM=["","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve"];
+let stars=0;
+function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.8;const v=speechSynthesis.getVoices().find(v=>v.lang==="en-US");if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+let AC;function tone(f,t,d){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=f;o.type="triangle";g.gain.value=.15;o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d)}catch(e){}}
+function ok(){stars++;$("stars").textContent="⭐ "+stars;try{[523,659,784].forEach((f,i)=>tone(f,AC?AC.currentTime+i*.1:0,.15))}catch(e){}}
+function bad(){try{tone(200,0,.25)}catch(e){}}
+function win(){ok();for(let i=0;i<30;i++){const s=document.createElement("span");s.className="cf";s.textContent=["🎉","⭐","🪙","🎈","🍭"][i%5];s.style.left=rnd(95)+"vw";s.style.animationDelay=(Math.random()*.8)+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),3500)}}
+["🍎","🥛","🍞","🪙","🛍️","🍭","💵"].forEach((e,i)=>{const s=document.createElement("div");s.className="fl";s.textContent=e;s.style.left=(i*15)+"vw";s.style.animationDelay=(-i*1.3)+"s";document.body.appendChild(s)});
+
+/* NAV */
+const T=["📖 Aprende","🧠 Quiz","🔎 Sopa de letras","🍦 Paleta","🃏 Memoria","💰 La caja","✍️ Escribe"];
+$("nav").innerHTML=T.map((t,i)=>`<button onclick="tab(${i})">${t}</button>`).join("");
+const starts=[null,qStart,wsStart,pStart,mStart,cStart,wrStart];
+function tab(i){document.querySelectorAll(".sec").forEach((s,j)=>s.hidden=j!==i);document.querySelectorAll("nav button").forEach((b,j)=>b.classList.toggle("on",j===i));if(starts[i])starts[i]();scrollTo(0,0)}
+
+/* LEARN */
+$("s0").innerHTML=`<h2>¡Bienvenidos a la tienda! 🏪</h2>
+<p>Hoy aprenderás a comprar en inglés. 👆 <b>Toca cada tarjeta</b> para escuchar cómo se pronuncia la palabra.</p>
+<div class="grid">${W.map((w,i)=>`<div class="card" onclick="say('${w[0]}')"><div class="e">${w[1]}</div><b>${w[0]} 🔊</b><small>${w[2]}</small></div>`).join("")}</div>
+<h2 style="margin-top:18px">Frases para comprar 💬</h2><p>Toca cada frase para escucharla y repítela en voz alta.</p>
+${P.map((p,i)=>`<div class="say" onclick="say(P[${i}][0])">🔊 <b>${p[0]}</b><br><small>${p[1]}</small></div>`).join("")}
+<p>🎮 ¡Ahora toca los botones de arriba para jugar!</p>`;
+
+/* QUIZ */
+let qs,qi,qsc,qt;
+function qStart(){qs=sh(W).slice(0,15).map((w,i)=>({w,m:i%2,o:sh([w,...sh(W.filter(x=>x!==w)).slice(0,3)])}));qi=0;qsc=0;qShow()}
+function qShow(){qt=false;const e=$("s1");
+if(qi>=15){e.innerHTML=`<h2>¡Terminaste! 🎉</h2><p style="font-size:1.6rem">Acertaste ${qsc} de 15 a la primera</p><button class="b" onclick="qStart()">Jugar otra vez</button>`;if(qsc>=11)win();return}
+const q=qs[qi];
+e.innerHTML=`<h2>🧠 Quiz</h2><p>Pregunta ${qi+1} de 15</p>`+(q.m?`<p>Escucha la palabra y elige el dibujo correcto.</p><button class="b" onclick="say('${q.w[0]}')">🔊 Escuchar</button>`:`<div class="big">${q.w[1]}</div><p>¿Cómo se dice esto en inglés?</p>`)+`<div>${q.o.map((o,j)=>`<button class="opt" onclick="qA(${j},this)">${q.m?`<span style="font-size:2rem">${o[1]}</span>`:o[0]}</button>`).join("")}</div><p id="fb"></p>`;
+if(q.m)say(q.w[0])}
+function qA(j,b){const q=qs[qi];if(q.o[j]===q.w){b.classList.add("ok");if(!qt)qsc++;ok();say(q.w[0]);$("fb").textContent="¡Muy bien! 🌟";qi++;setTimeout(qShow,1300)}else{qt=true;b.classList.add("no");b.disabled=true;bad();$("fb").textContent="Casi… ¡inténtalo otra vez! 💪"}}
+
+/* WORD SEARCH */
+const WS=["SHOP","BUY","BAG","COIN","MILK","CART","MONEY","BREAD","APPLE","PRICE","SHIRT","SHOES","BOOK","FISH","HAT","TOY","EGG","CASHIER"];const N=12;let g,ws;
+function wsStart(){g=Array(N*N).fill("");ws={s:-1,f:[],l:new Set()};
+WS.forEach(w=>{for(let t=0;t<400;t++){const h=Math.random()<.5,L=w.length,r=rnd(h?N:N+1-L),c=rnd(h?N+1-L:N);const id=i=>(r+(h?0:i))*N+c+(h?i:0);let fit=true;for(let i=0;i<L;i++){const k=id(i);if(g[k]!==""&&g[k]!==w[i]){fit=false;break}}if(fit){for(let i=0;i<L;i++)g[id(i)]=w[i];break}}});
+g=g.map(x=>x||String.fromCharCode(65+rnd(26)));wsR()}
+function wsR(){$("s2").innerHTML=`<h2>🔎 Sopa de letras</h2><p>Busca estas palabras en inglés. Toca la <b>primera letra</b> y luego la <b>última letra</b> (en línea recta: horizontal o vertical, ¡y también al revés!).</p>
+<div class="wl">${WS.map(w=>`<span class="${ws.f.includes(w)?"f":""}">${w}</span>`).join("")}</div>
+<div class="ws">${g.map((x,i)=>`<button class="${ws.l.has(i)?"f":ws.s===i?"s":""}" onclick="wsC(${i})">${x}</button>`).join("")}</div>
+<p>${ws.f.length===WS.length?"🎉 ¡Encontraste todas las palabras!":`Encontradas: ${ws.f.length} de ${WS.length}`}</p><button class="b" onclick="wsStart()">🔄 Nueva sopa</button>`}
+function wsC(i){if(ws.s<0){ws.s=i}else{const a=ws.s,r1=a/N|0,c1=a%N,r2=i/N|0,c2=i%N;ws.s=-1;let hit=false;
+if(r1===r2||c1===c2){const n=Math.max(Math.abs(r2-r1),Math.abs(c2-c1)),dr=Math.sign(r2-r1),dc=Math.sign(c2-c1),cs=[];for(let k=0;k<=n;k++)cs.push((r1+dr*k)*N+c1+dc*k);const s=cs.map(k=>g[k]).join(""),f=WS.find(w=>w===s||w===[...s].reverse().join(""));
+if(f&&!ws.f.includes(f)){ws.f.push(f);cs.forEach(k=>ws.l.add(k));hit=true;say(f.toLowerCase());ws.f.length===WS.length?win():ok()}}
+if(!hit)bad()}wsR()}
+
+/* POPSICLE */
+let pw,pg,pwr;
+function pStart(){pw=sh(W)[0];pg=[];pwr=0;pR()}
+function pR(){const w=pw[0],done=[...w].every(c=>pg.includes(c)),lost=pwr>=6;
+$("s3").innerHTML=`<h2>🍦 ¡Salva la paleta!</h2><p>Adivina la palabra en inglés antes de que la paleta se derrita. Pista: <b>${pw[1]} ${pw[2]}</b></p>
+<div class="pop"><div class="pb" style="height:${lost?0:Math.max(14,110-pwr*17)}px"></div><div class="ps"></div></div>
+<p>${"💧".repeat(pwr)||"❄️ ¡Todavía está fresquita!"}</p>
+<div class="blanks">${[...w].map(c=>pg.includes(c)?c.toUpperCase():"_").join(" ")}</div>
+<p>${done?"🎉 ¡Salvaste la paleta! 🍭":lost?"😢 ¡Se derritió! Inténtalo con otra palabra.":"Elige una letra:"}</p>
+<div class="kb">${"abcdefghijklmnopqrstuvwxyz".split("").map(c=>`<button ${pg.includes(c)||done||lost?"disabled":""} onclick="pK('${c}')">${c.toUpperCase()}</button>`).join("")}</div>
+<button class="b" onclick="pStart()">🔄 Otra palabra</button>`}
+function pK(c){pg.push(c);if(pw[0].includes(c)){ok()}else{pwr++;bad()}
+pR();if([...pw[0]].every(x=>pg.includes(x))){win();say(pw[0])}}
+
+/* MEMORY */
+let mc,mo,mlock,mm;
+function mStart(){const ws=sh(W).slice(0,12);mc=sh(ws.flatMap((w,i)=>[{k:i,t:"e",v:w[1],w:w[0]},{k:i,t:"w",v:w[0],w:w[0]}]));mo=[];mlock=false;mm=0;mR()}
+function mR(){const all=mc.every(c=>c.d);$("s4").innerHTML=`<h2>🃏 Memoria</h2><p>Une cada dibujo con su palabra en inglés. Intentos: ${mm}</p>
+<div class="mem">${mc.map((c,i)=>`<button class="mc ${c.up||c.d?"up":""} ${c.t==="w"?"w":""} ${c.d?"d":""}" onclick="mF(${i})">${c.up||c.d?c.v:"❓"}</button>`).join("")}</div>
+<p>${all?"🎉 ¡Lo lograste en "+mm+" intentos!":""}</p><button class="b" onclick="mStart()">🔄 Reiniciar</button>`}
+function mF(i){const c=mc[i];if(mlock||c.up||c.d)return;c.up=true;if(c.t==="w")say(c.w);mo.push(i);mR();
+if(mo.length===2){mm++;mlock=true;const[a,b]=mo.map(x=>mc[x]);setTimeout(()=>{if(a.k===b.k){a.d=b.d=true;ok();say(a.w)}else{bad()}a.up=b.up=false;mo=[];mlock=false;mR();if(mc.every(x=>x.d))win()},900)}}
+
+/* CASHIER */
+const IT=[["🍎","apple"],["🥛","milk"],["🍞","bread"],["👗","dress"],["🛍️","bag"],["🍭","lollipop"],["👕","shirt"],["🧢","hat"],["🧸","toy"],["📚","book"],["⚽","ball"],["🍌","banana"],["🍕","pizza"],["🍪","cookie"],["🧥","jacket"],["🧃","juice"]];
+const CO=[1,2,5,10];let cr,cit,cp,ct,csc;
+function cStart(){cr=0;csc=0;cNext()}
+function cNext(){if(cr>=8){$("s5").innerHTML=`<h2>🎉 ¡Excelente cajero(a)!</h2><p style="font-size:1.5rem">Pagaste bien ${csc} de 8 compras</p><button class="b" onclick="cStart()">Jugar otra vez</button>`;if(csc>=6)win();return}
+cit=IT[rnd(IT.length)];cp=1+rnd(12);ct=[];cR("")}
+function cR(m){const tot=ct.reduce((a,b)=>a+b,0);
+$("s5").innerHTML=`<h2>💰 La caja registradora</h2><p>Compra ${cr+1} de 8. Eres el cliente. Escucha cuánto cuesta y paga <b>el precio exacto</b> con monedas.</p>
+<div class="big">${cit[0]}</div><p><b>How much is the ${cit[1]}?</b> 🗣️ ¿Cuánto cuesta?</p>
+<button class="b" onclick="say('How much is the ${cit[1]}? It is ${NUM[cp]} dollars.')">🔊 Escuchar el precio</button>
+<p style="font-size:1.4rem">💬 It’s <b>${NUM[cp]}</b> dollars. ($${cp})</p>
+<div>${CO.map(c=>`<button class="b" onclick="cA(${c})">🪙 $${c}</button>`).join("")}</div>
+<div class="tray">${ct.map(c=>`<span>🪙${c} </span>`).join("")||"👆 Toca las monedas"}</div><p>Total: <b>$${tot}</b></p>
+<button class="b" onclick="cPay()">✅ Pagar</button><button class="b" onclick="ct=[];cR('')">🗑️ Borrar</button><p><b>${m}</b></p>`}
+function cA(c){ct.push(c);tone(880,0,.08);cR("")}
+function cPay(){const tot=ct.reduce((a,b)=>a+b,0);
+if(tot===cp){csc+=1;ok();say("Thank you!");cr++;cR("🎉 ¡Correcto! Thank you!");setTimeout(cNext,1300)}
+else{bad();cR(tot<cp?"Falta dinero 💸 ¡sigue intentando!":"¡Te pasaste! Borra y prueba otra vez 🔄")}}
+
+/* WRITE */
+let wr;
+function wrStart(){wr=sh(W).slice(0,10);$("s6").innerHTML=`<h2>✍️ Escribe en inglés</h2><p>Mira el dibujo, escucha si quieres y <b>escribe la palabra en inglés</b>. Luego toca “Revisar”.</p>
+${wr.map((w,i)=>`<div class="row"><span style="font-size:2.6rem">${w[1]}</span><button class="b" onclick="say('${w[0]}')">🔊</button><input id="w${i}" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Escribe aquí…"></div>`).join("")}
+<div class="row"><b>Completa:</b> “How <input id="hm" style="width:90px" autocomplete="off" autocapitalize="none" placeholder="..."> is it?” <small>(¿Cuánto cuesta?)</small></div><div class="row"><b>Completa:</b> “I want to <input id="by" style="width:90px" autocomplete="off" autocapitalize="none" placeholder="..."> a bag.” <small>(Quiero comprar una bolsa)</small></div><div class="row"><b>Completa:</b> “Thank <input id="ty" style="width:90px" autocomplete="off" autocapitalize="none" placeholder="...">!” <small>(¡Gracias!)</small></div>
+<button class="b" onclick="wrCheck()">✅ Revisar</button><p id="wrm"></p>`}
+function wrCheck(){let n=0;const v=[...wr.map((w,i)=>[`w${i}`,w[0]]),["hm","much"],["by","buy"],["ty","you"]];
+v.forEach(([id,a])=>{const e=$(id),r=e.value.trim().toLowerCase()===a;e.className=r?"ok":"no";if(r)n++});
+$("wrm").textContent=n===v.length?"🎉 ¡Perfecto! ¡Todo correcto!":`Tienes ${n} de ${v.length} bien. Las casillas rojas necesitan otro intento 💪`;
+n===v.length?win():n?ok():bad()}
+
+tab(0);
+</script></body></html>
